@@ -1,4 +1,4 @@
-import NavBar from './components/NavBar'
+import NavBar from './components/Header/NavBar'
 import Home from './pages/Home'
 import './styles/index.css'
 

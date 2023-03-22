@@ -1,6 +1,6 @@
 import Platform from '../assets/home2-bg.png'
 import Coin from '../assets/h2-bit-m.png'
-import { GlobalStats } from '../components/GlobalStats/GlobalStats'
+import { TrendingCoins } from '../components/GlobalStats/TrendingCoins'
 
 
 const Home = () => {
@@ -25,7 +25,7 @@ const Home = () => {
                 className='outline-none w-[700px] bg-white/5 p-2 rounded-full text-white transition-all duration-300 text-lg  shadow-cyan-300'
             />
         </div>
-        <GlobalStats/>
+        <TrendingCoins/>
     </main>
   )
 }

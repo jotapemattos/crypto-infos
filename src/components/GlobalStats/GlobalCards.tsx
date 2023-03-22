@@ -1,62 +1,24 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import  { globalStats }  from '../../utils/data'
+import  { baseUrl }  from '../../utils/data'
 
 
-interface coinsType {
-    uuid: string,
-    symbol: string,
-    name: string,
-    iconUrl: string,
-    coinrankingUrl: string
-}
-
-interface  globalStatsType {
-    bestCoins: [coinsType],
-    btcDominance: number,
-    newestCoins: [coinsType],
-    totalCoins: number,
-    totalExchanges: number,
-    totalMarketCap: string,
-    totalMarkets: number
-}
 
  
 
 export const GlobalCards = () => {
-    const [data, setData] = useState<globalStatsType>({
-        bestCoins: [{
-            uuid: '', 
-            symbol: '',
-            name: '',
-            iconUrl: '',
-            coinrankingUrl: ''
-        }],
-        btcDominance: 0,
-        newestCoins: [{
-            uuid: '', 
-            symbol: '',
-            name: '',
-            iconUrl: '',
-            coinrankingUrl: ''
-        }],
-        totalCoins: 0,
-        totalExchanges: 0,
-        totalMarketCap: '',
-        totalMarkets: 0
-    
-      })  
+    /* const [data, setData] = useState<globalStatsType>({})  */ 
 
       const cardStyle = `w-1/3 h-auto p-2 bg-gradient-to-br from-transparent to-white/10 backdrop-blur-sm border border-white/20 rounded-lg`
     
       useEffect(()=>{
-        axios.request(globalStats)
-        .then((response)=> setData(response.data.data))
+        axios.get(`${baseUrl}/nfts/list`)
+        .then((response)=> console.log(response))
       }, [])
 
   return (
     <div className="w-full flex gap-10">
-        <div className={cardStyle}>
+        {/* <div className={cardStyle}>
             <div className="h-full flex flex-col justify-center items-center gap-10">
                 <h1 className="text-2xl text-white">Newest coins</h1>
                 <div className="w-full h-full grid grid-cols-3 justify-items-center">
@@ -112,7 +74,7 @@ export const GlobalCards = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */}
     </div>
   )
 }

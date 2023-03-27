@@ -1,7 +1,7 @@
 import Platform from '../assets/home2-bg.png'
 import Coin from '../assets/h2-bit-m.png'
 import { TrendingCoins } from '../components/GlobalStats/TrendingCoins'
-import { Key, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -17,7 +17,7 @@ const Home = () => {
   }
     
   return (
-    <main className="flex flex-col items-center justify-center gap-28 pb-20 min-w-screen min-h-full">
+    <main className="home flex flex-col items-center justify-center gap-28 pb-20 min-w-screen min-h-full">
         <div className='w-4/5 h-auto pt-40 flex items-start justify-between'>
             <span className='w-1/2 flex flex-col gap-16 items-start pt-20 justify-start'>
                 <h1 className='text-5xl text-white font-bold'>This is Crypto Corner</h1>

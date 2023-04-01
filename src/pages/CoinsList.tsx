@@ -1,26 +1,18 @@
 import axios from 'axios'
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CurrencyContext } from '../context/Currency'
 import { CoinList } from '../services/api'
-
-interface CoinsType {
-    name: string,
-    symbol: string,
-    image: string,
-    market_cap_rank: number,
-    current_price: number,
-    price_change_percentage_24h: number
-}
+import { CoinsContext } from '../context/Coins'
 
 const CoinsList = () => {
-  const {currency, symbol} = useContext(CurrencyContext)
-  const [data, setData] = useState(Array<CoinsType>)  
+  const { currency, symbol } = useContext(CurrencyContext)
+  const { coins, setCoins } = useContext(CoinsContext)  
 
   useEffect(() => {
     //axios cancellation token in case the user cancels the request
     const cancelToken = axios.CancelToken.source() 
     axios.get(CoinList(currency), {cancelToken: cancelToken.token})
-    .then((response) => setData(response.data))
+    .then((response) => setCoins(response.data))
      .catch((err) => {
         if (axios.isCancel(err)) {
             console.log("request cancelled")
@@ -34,10 +26,11 @@ const CoinsList = () => {
         cancelToken.cancel()
     }
   }, [currency])
+
   return (
     <div className='coinsList flex flex-col items-center justify-center pb-20 min-w-screen min-h-full'>
         <div className='w-5/6 flex flex-col gap-10 h-auto mt-40'>
-            {data.map((coin) => (
+            {coins.map((coin) => (
                 <div 
                     key={coin.symbol} 
                     className='w-full flex items-center justify-between bg-blue-900/20 rounded-2xl shadow-xl'

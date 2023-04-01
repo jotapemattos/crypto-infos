@@ -4,6 +4,8 @@ import CoinsList from './pages/CoinsList'
 import Home from './pages/Home'
 import SearchResults from './pages/SearchResults'
 import './styles/index.css'
+import { SearchQueryContext } from './context/SearchQuery'
+import { useContext } from 'react'
 
 function App() {
 
@@ -14,7 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/coinslist' element={<CoinsList/>}/>
-          <Route path='/search/:name' element={<SearchResults/>}/>
+          <Route path='/search/:search' element={<SearchResults/>}/>
         </Routes>
       </BrowserRouter>
     </div>

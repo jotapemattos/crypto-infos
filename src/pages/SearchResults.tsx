@@ -1,21 +1,30 @@
+import { useContext, useEffect } from "react"
+import { SearchQueryContext } from "../context/SearchQuery"
+import { useState } from "react"
 import axios from "axios"
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
-import { SingleCoin } from "../utils/api"
+import { SearchCoin } from "../services/api"
 
-interface CoinsType {
-
+interface SearchCoinsProps {
+  api_symbol: string,
+  id: string,
+  large: string,
+  market_cap_rank: number,
+  name: string,
+  symbol: string,
+  thumb: string
 }
 
 const SearchResults = () => {
-  /* const params = useParams()
-  const [data, setData] = useState(Array<CoinsType>)
+  const { search } = useContext(SearchQueryContext)
+  const [ searchCoins, setSearchCoins] = useState(Array<SearchCoinsProps>)
 
   useEffect(() => {
-    axios.get(SingleCoin(name))
-  }, [params.name]) */
+    axios.get(SearchCoin(search.toLowerCase()))
+    .then((response) => setSearchCoins(response.data.coins))
+  }, [])
+
   return (
-    <div>SearchResults</div>
+    <div className="text-white">{searchCoins.map((coin) => (coin.id))}</div>
   )
 }
 

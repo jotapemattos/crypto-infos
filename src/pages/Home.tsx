@@ -1,21 +1,21 @@
 import Platform from '../assets/home2-bg.png'
 import Coin from '../assets/h2-bit-m.png'
 import { TrendingCoins } from '../components/GlobalStats/TrendingCoins'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { SearchQueryContext } from '../context/SearchQuery'
 
 
 const Home = () => {
-  const [name, setName] = useState('')
+  const { search, setSearch} = useContext(SearchQueryContext)
   const navigate = useNavigate()
   const handleSearch = (e: {key: string}) => {
     if (e.key === 'Enter'){
-        setName('')
-        navigate('/search/' + name)
+        navigate('/search/' + search)
     }
     return 
   }
-    
+
   return (
     <main className="home flex flex-col items-center justify-center gap-28 pb-20 min-w-screen min-h-full">
         <div className='w-4/5 h-auto pt-40 flex items-start justify-between'>
@@ -35,7 +35,7 @@ const Home = () => {
                 type="text" 
                 placeholder='Ex: Bitcoin, Ethereum, Tether, etc.'
                 className='outline-none w-[700px] bg-white/5 p-2 rounded-full text-white transition-all duration-300 text-lg  shadow-cyan-300'
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setSearch(e.target.value)}
                 onKeyDown={handleSearch}
             />
         </div>

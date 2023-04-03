@@ -51,6 +51,15 @@ html {
      radial-gradient(at 60% -20%, hsla(197, 78%, 52%, 0.4) 0, transparent 17%);
 }
 
+.results {
+    background-color:#020017;
+    background-image:
+        radial-gradient(at 58% 0%, hsla(225, 89%, 22%, 0.9) 0, transparent 15%),   
+        radial-gradient(at 65% 0%, hsla(197, 78%, 52%, 0.5) 0, transparent 17%),
+        radial-gradient(at 50% 50%, hsla(225, 89%, 22%, 0.5) 0, transparent 60%),   
+        radial-gradient(at 0% 0%, hsla(240, 100%, 0%, 0.5) 0, transparent 100%);
+}
+
 @media (max-width: 425px){
     .main {
         background-color:#020017;

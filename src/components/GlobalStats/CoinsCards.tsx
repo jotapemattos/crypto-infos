@@ -39,7 +39,7 @@ export const CoinsCards = () => {
         {data.map((coin) => (
             <div 
                 key={coin.symbol} 
-                className='w-60 h-auto flex flex-col justify-center items-center gap-4 p-2 bg-blue-900/30 backdrop-blur-sm rounded-lg shadow-2xl'
+                className='w-60 h-auto flex flex-col justify-center items-center gap-4 p-2 bg-gradient-to-br from-white/10 to-white/~5 backdrop-blur-sm rounded-xl drop-shadow-lg border border-white/20'
             >
                 <img src={coin.image} alt="coin-image" className="w-20"/>
                 <div className=" flex justify-center gap-4">

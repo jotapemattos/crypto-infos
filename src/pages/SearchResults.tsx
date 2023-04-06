@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react"
+import { useContext, useEffect } from "react"
 import { SearchQueryContext } from "../context/SearchQuery"
 import { useState } from "react"
 import axios from "axios"
@@ -65,17 +65,21 @@ const SearchResults = () => {
         <main 
           className="w-4/5 grid grid-cols-5 gap-10 items-center justify-items-center">
           {searchCoins?.map((coin) => (
-            <div 
-              className="relative w-60 h-64 flex flex-col justify-center items-center gap-4 p-2 text-white bg-gradient-to-br from-white/10 to-white/0 backdrop-blur-sm rounded-xl drop-shadow-lg border border-white/20"
+            <Link
+              to={'/coinpage/' + coin.id}
               key={coin.id}
             >
-              <h1>#{coin.market_cap_rank}</h1>
-              <img src={coin.large} alt="coin-image" className="w-20"/>
-              <div className="flex flex-col items-center text-center">
-                <h1>{coin.name}</h1>
-                <h2>{coin.symbol}</h2>
+              <div
+                className="relative w-60 h-64 flex flex-col justify-center items-center gap-4 p-2 text-white bg-gradient-to-br from-white/10 to-white/0 backdrop-blur-sm rounded-xl drop-shadow-lg"
+              >
+                <h1>#{coin.market_cap_rank}</h1>
+                <img src={coin.large} alt="coin-image" className="w-20" />
+                <div className="flex flex-col items-center text-center">
+                  <h1>{coin.name}</h1>
+                  <h2>{coin.symbol}</h2>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </main>
       </div>

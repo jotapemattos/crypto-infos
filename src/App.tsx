@@ -4,8 +4,7 @@ import CoinsList from './pages/CoinsList'
 import Home from './pages/Home'
 import SearchResults from './pages/SearchResults'
 import './styles/index.css'
-import { SearchQueryContext } from './context/SearchQuery'
-import { useContext } from 'react'
+import CoinPage from './pages/CoinPage'
 
 function App() {
 
@@ -17,6 +16,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/coinslist' element={<CoinsList/>}/>
           <Route path='/search/:search' element={<SearchResults/>}/>
+          <Route path='/coinpage/:coin' element={<CoinPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

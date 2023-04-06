@@ -28,7 +28,7 @@ const CoinPricesGraph = ({coin, currency}: ParametersProps) => {
 
   return (
     <div className="flex flex-col min-w-full w-full min-h-full h-full">
-      <span className="w-full h-[85%]">
+      <span className="w-full flex items-center justify-center h-[85%]">
         <Line
           data={{
             labels: historicData?.map((coin) => {

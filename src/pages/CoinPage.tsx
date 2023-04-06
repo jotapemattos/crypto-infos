@@ -36,7 +36,7 @@ const CoinPage = () => {
   }, [])
 
   return (
-    <div className="min-w-full min-h-full flex flex-col items-center justify-center relative top-44">
+    <div className="coinpage min-w-full min-h-full flex flex-col items-center justify-center pt-44">
       <section className="w-full h-[700px] px-16 flex">
         <aside className="w-[500px] p-10 flex flex-col gap-10 text-white items-center justify-between border-r border-white">
           <img src={singleCoin?.image.large} alt="" width="150px"/>

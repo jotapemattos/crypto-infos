@@ -45,6 +45,20 @@ html {
         radial-gradient(at 60% 90%, hsla(197, 78%, 52%, 0.3) 0, transparent 17%);
 }
 
+.navbar {
+    background-image: 
+        radial-gradient(at 50% 90%, hsla(225, 89%, 22%, 0.5) 0, transparent 20%),  
+        radial-gradient(at 50% 90%, hsla(197, 78%, 52%, 0.3) 0, transparent 27%);
+}
+
+.coinpage{
+    background-color:#020017;
+    background-image: 
+        radial-gradient(at 50% 50%, hsla(225, 89%, 22%, 0.5) 0, transparent 60%),  
+        radial-gradient(at 50% 50%, hsla(197, 78%, 52%, 0.3) 0, transparent 27%),
+        radial-gradient(at 0% 0%, hsla(240, 100%, 0%, 0.5) 0, transparent 100%);
+}
+
 .coinsList {
     background-image: 
      radial-gradient(at 58% -20%, hsla(225, 89%, 22%, 0.9) 0, transparent 15%),   
@@ -65,7 +79,7 @@ html {
         background-color:#020017;
         background-image: 
             radial-gradient(at 80% -10%, hsla(225, 89%, 22%, 1) 0, transparent 20%),   
-            radial-gradient(at 70% -30%, hsla(197, 78%, 52%, 1) 0, transparent 25%);
+            radial-gradient(at 70% -30%, hsl(197, 78%, 52%) 0, transparent 25%);
     }
 }
 

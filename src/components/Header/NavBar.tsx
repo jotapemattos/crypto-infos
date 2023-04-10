@@ -19,7 +19,9 @@ const NavBar = () => {
                 <Link to={'/coinslist'}>
                   <h4 className='hover:text-blue-300 hover:cursor-pointer transition-all duration-300'>Coins</h4>
                 </Link>
-                <h4 className='hover:text-blue-300 hover:cursor-pointer transition-all duration-300'>Exchanges</h4>
+                <Link to={'/exchanges'}>
+                  <h4 className='hover:text-blue-300 hover:cursor-pointer transition-all duration-300'>Exchanges</h4>
+                </Link>
                 <h4 className='hover:text-blue-300 hover:cursor-pointer transition-all duration-300'>Markets</h4>
             </nav>
             <div className='text-base w-1/3 hidden lg:flex justify-end '>

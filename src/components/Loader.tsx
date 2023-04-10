@@ -1,9 +1,13 @@
-import { BarLoader } from "react-spinners"
+import { BeatLoader } from "react-spinners"
 
 const Loader = () => {
   return (
     <>
-        <BarLoader color="#25aee480"/>
+        <BeatLoader 
+          color="#60a5fa"
+          margin={3}
+          size={15}
+        />
     </>
   )
 }

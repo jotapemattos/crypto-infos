@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { chartDays } from "../utils/chartDays"
 import { CategoryScale, Chart as ChartJS } from 'chart.js/auto'
 import Chart from 'chart.js/auto';
-import { Line }            from 'react-chartjs-2'
+import { Line } from 'react-chartjs-2'
 
 Chart.register(CategoryScale);
 
@@ -60,7 +60,7 @@ const CoinPricesGraph = ({coin, currency}: ParametersProps) => {
       <span className="text-white w-full h-[15%] flex items-center justify-around">
         {chartDays.map((day) => (
           <button
-            className="bg-blue-500/30 w-72 py-2 px-4 rounded-xl"
+            className="bg-blue-500/30 w-72 py-2 px-4 rounded-xl hover:-translate-y-1 hover:opacity-60 transition-all duration-300"
             key={day.value}
             onClick={() => setDays(day.value)}
           >

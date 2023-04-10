@@ -12,3 +12,6 @@ export const TrendingCoins = (currency: string) =>
 
 export const SearchCoin = (query: string) =>
   `https://api.coingecko.com/api/v3/search?query=${query}`
+
+export const ExchangeList = (page: number) => 
+  `https://api.coingecko.com/api/v3/exchanges?per_page=50&page=${page}`

@@ -30,6 +30,11 @@ export const CoinsCards = () => {
     fetchTrendingCoins()
   }, [currency])
 
+  const handleSetPriceChangeColor = (price: number) => {
+    if (price >= 0) return 'green'
+    return 'red'
+  }
+
   return (
     <>
       {isLoading && (
@@ -45,21 +50,14 @@ export const CoinsCards = () => {
             key={coin.id}
           >
             <div
-              className='w-60 h-56 flex flex-col justify-center items-center gap-4 p-2 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl shadow-2xl hover:cursor-pointer hover:scale-95 transition-all duration-500'
+              className='w-60 h-56 flex flex-col justify-center items-center gap-4 p-2 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl shadow-2xl hover:cursor-pointer hover:-translate-y-1 hover:opacity-70 transition-all duration-300'
             >
               <img src={coin.image} alt="coin-image" className="w-20" />
               <div className=" flex justify-center gap-4">
                 <span className="text-white">{coin.symbol.toUpperCase()}</span>
-                {coin.price_change_percentage_24h >= 0 && (
-                  <span className="text-green-500">
+                  <span style={{color: handleSetPriceChangeColor(coin.price_change_percentage_24h)}}>
                     {coin.price_change_percentage_24h.toFixed(2)}%
                   </span>
-                )}
-                {coin.price_change_percentage_24h < 0 && (
-                  <span className="text-red-700">
-                    {coin.price_change_percentage_24h.toFixed(2)}%
-                  </span>
-                )}
               </div>
               <div className="font-bold text-xl flex gap-2">
                 <span>{symbol}</span>

@@ -1,41 +1,9 @@
-import { useContext, useEffect } from "react"
-import { SearchQueryContext } from "../context/SearchQuery"
-import { useState } from "react"
-import axios from "axios"
-import { SearchCoin } from "../services/api"
 import { Link } from "react-router-dom"
-import { CurrencyContext } from "../context/Currency"
 import Loader from "../components/Loader"
-
-
-interface SearchCoinsProps {
-  api_symbol: string,
-  id: string,
-  large: string,
-  market_cap_rank: number,
-  name: string,
-  symbol: string,
-  thumb: string
-}
+import { useSearchResults } from "../hooks/useSearchResults"
 
 const SearchResults = () => {
-  const { search } = useContext(SearchQueryContext)
-  const { currency } = useContext(CurrencyContext)
-  const [ searchCoins, setSearchCoins] = useState <SearchCoinsProps[] | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-
-  const fetchSearch = async () => {
-    await axios.get(SearchCoin(search.toLowerCase()))
-    .then((response) => setSearchCoins(response.data.coins))
-    .catch((err) => {return (
-      <div>{err.name}</div>
-    )})
-    setIsLoading(false)
-  }
-
-  useEffect(() => {
-    fetchSearch()
-  }, [currency])
+  const { search, searchCoins, isLoading } = useSearchResults()
 
   return (
     <>
@@ -70,7 +38,7 @@ const SearchResults = () => {
               key={coin.id}
             >
               <div
-                className="relative w-60 h-64 flex flex-col justify-center items-center gap-4 p-2 text-white bg-gradient-to-br from-white/10 to-white/0 backdrop-blur-sm rounded-xl drop-shadow-lg"
+                className="relative w-60 h-56 flex flex-col justify-center items-center gap-4 p-2 text-white bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl drop-shadow-lg hover:-translate-y-1 hover:opacity-70 transition-all duration-300"
               >
                 <h1>#{coin.market_cap_rank}</h1>
                 <img src={coin.large} alt="coin-image" className="w-20" />

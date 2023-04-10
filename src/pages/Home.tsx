@@ -1,20 +1,11 @@
 import Platform from '../assets/home2-bg.png'
 import Coin from '../assets/h2-bit-m.png'
 import { TrendingCoins } from '../components/GlobalStats/TrendingCoins'
-import { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { SearchQueryContext } from '../context/SearchQuery'
+import { useHome } from '../hooks/useHome'
 
 
 const Home = () => {
-    const { search, setSearch } = useContext(SearchQueryContext)
-    const navigate = useNavigate()
-    const handleSearch = (e: { key: string }) => {
-        if (e.key === 'Enter') {
-            navigate('/search/' + search)
-        }
-        return
-    }
+    const { setSearch, handleSearch } = useHome()
 
     return (
         <main className="home flex flex-col items-center justify-center gap-28 pb-20 min-w-screen min-h-full">

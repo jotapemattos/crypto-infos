@@ -1,26 +1,14 @@
-import axios from 'axios'
-import { useContext, useEffect, useState } from 'react'
-import { CurrencyContext } from '../context/Currency'
-import { CoinList } from '../services/api'
-import { CoinsContext } from '../context/Coins'
 import Loader from '../components/Loader'
 import { Link } from 'react-router-dom'
+import { useCoinsList } from '../hooks/useCoinsList'
+
+const handleSetPriceChangeColor = (price: number) => {
+  if (price >= 0) return 'green'
+  return 'red'
+}
 
 const CoinsList = () => {
-  const { currency, symbol } = useContext(CurrencyContext)
-  const { coins, setCoins } = useContext(CoinsContext)
-  const [isLoading, setIsLoading] = useState(true)
-
-  const fetchCoins = async () => {
-    await axios.get(CoinList(currency))
-      .then((response) => setCoins(response.data))
-      .catch((err) => console.log(err.name))
-    setIsLoading(false)
-  }
-
-  useEffect(() => {
-    fetchCoins()
-  }, [currency])
+  const { currency, symbol, coins, isLoading } = useCoinsList()
 
   return (
     <>
@@ -50,16 +38,9 @@ const CoinsList = () => {
                 <div className='w-1/3 h-28 p-4 flex items-center justify-center gap-4 text-white'>
                   <p className='text-2xl'>{coin.symbol.toUpperCase()}</p>
                   <div className=" flex justify-center gap-4">
-                    {coin.price_change_percentage_24h >= 0 && (
-                      <span className="text-green-500">
+                      <span style={{color: handleSetPriceChangeColor(coin.price_change_percentage_24h)}}>
                         {coin.price_change_percentage_24h.toFixed(2)}%
-                      </span>
-                    )}
-                    {coin.price_change_percentage_24h < 0 && (
-                      <span className="text-red-700">
-                        {coin.price_change_percentage_24h.toFixed(2)}%
-                      </span>
-                    )}
+                      </span>                             
                   </div>
                 </div>
                 <div className='w-1/3 h-28 p-4 flex items-center justify-end gap-4 text-white'>

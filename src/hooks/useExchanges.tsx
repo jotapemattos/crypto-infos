@@ -17,6 +17,7 @@ export const useExchange = () => {
   const [exchanges, setExchanges] = useState(Array<ExchangesProps>)
   const [pages, setPages] = useState(1)
   const [pageSelected, setPageSelected] = useState(1)
+  const [isLoading, setIsLoading] = useState(true)
 
   const pagesArray = [1, 2, 3, 4, 5, 6]
 
@@ -45,6 +46,7 @@ export const useExchange = () => {
 	const fetchExchanges = async () => {
 		await axios.get(ExchangeList(pages))
     .then((response) => setExchanges(response.data))
+    setIsLoading(false)
 	}
 
 	useEffect(() => {
@@ -55,6 +57,7 @@ export const useExchange = () => {
     exchanges,
     pagesArray,
     pageSelected,
+    isLoading,
     handleClick,
     handlePreviousPage,
     handleNextPage

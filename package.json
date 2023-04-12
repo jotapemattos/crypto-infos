@@ -12,6 +12,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.11.14",
+    "@phosphor-icons/react": "^2.0.8",
     "axios": "^1.3.4",
     "chart.js": "^4.2.1",
     "chartjs-adapter-date-fns": "^3.0.0",

@@ -31,14 +31,14 @@ const SearchResults = () => {
           </div>
         )}
         <main 
-          className="w-4/5 grid grid-cols-5 gap-10 items-center justify-items-center">
+          className="w-4/5 grid xl:grid-cols-5 gap-10 items-center justify-items-center">
           {searchCoins?.map((coin) => (
             <Link
               to={'/coinpage/' + coin.id}
               key={coin.id}
             >
               <div
-                className="relative w-60 h-56 flex flex-col justify-center items-center gap-4 p-2 text-white bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl drop-shadow-lg hover:-translate-y-1 hover:opacity-70 transition-all duration-300"
+                className="card relative w-60 h-56 flex flex-col justify-center items-center gap-4 p-2 text-white bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl drop-shadow-lg hover:-translate-y-1 hover:opacity-70 transition-all duration-300"
               >
                 <h1>#{coin.market_cap_rank}</h1>
                 <img src={coin.large} alt="coin-image" className="w-20" />

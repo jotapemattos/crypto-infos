@@ -43,14 +43,14 @@ export const CoinsCards = () => {
         </div>
       )}
       {!isLoading && (
-        <div className="w-full grid grid-cols-5 gap-10 text-white">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-10 text-white">
         {data.map((coin) => (
           <Link 
             to={'/coinpage/' + coin.id}
             key={coin.id}
           >
             <div
-              className='w-60 h-56 flex flex-col justify-center items-center gap-4 p-2 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl shadow-2xl hover:cursor-pointer hover:-translate-y-1 hover:opacity-70 transition-all duration-300'
+              className='card w-full xl:w-60 h-56 flex flex-col justify-center items-center gap-4 p-2 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl shadow-2xl hover:cursor-pointer hover:-translate-y-1 hover:opacity-70 transition-all duration-300'
             >
               <img src={coin.image} alt="coin-image" className="w-20" />
               <div className=" flex justify-center gap-4">

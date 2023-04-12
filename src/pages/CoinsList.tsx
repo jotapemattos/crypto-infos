@@ -25,7 +25,7 @@ const CoinsList = () => {
               to={'/coinpage/' + coin.name.toLowerCase()}
               key={coin.symbol}>
               <div
-                className='w-full flex items-center justify-between bg-blue-900/20 rounded-2xl shadow-xl'
+                className='card w-full flex items-center justify-between bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm drop-shadow-lg rounded-2xl shadow-xl'
               >
                 <div className='w-1/3 h-28 p-4 flex items-center justify-start gap-4 text-white'>
                   <img src={coin.image} alt="coin-image" className='h-full' />

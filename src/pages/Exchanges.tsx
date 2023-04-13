@@ -15,10 +15,10 @@ const Exchanges = () => {
       }
       {!isLoading && (
         <div className="min-w-full min-h-full pt-36 pb-16 flex flex-col gap-16 items-center justify-center">
-          <section className="w-full flex items-center justify-center">
+          {<section className="w-full flex items-center justify-center">
             <h1 className="text-3xl text-white font-bold">Exchanges</h1>
-          </section>
-          <div className="w-4/5 grid grid-cols-5 gap-10 items-center justify-items-center">
+          </section>}
+          <div className="w-4/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-10 items-center justify-items-center">
             {exchanges.map((exchange) => (
               <div
                 className="card w-60 h-56 flex flex-col justify-around items-center gap-4 p-2 text-white bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl drop-shadow-lg hover:-translate-y-1 hover:opacity-70 hover:cursor-pointer transition-all duration-300"
@@ -43,9 +43,10 @@ const Exchanges = () => {
               className={!(pageSelected === 1) ? `hover:cursor-pointer` : `hover:cursor-default`}
               onClick={handlePreviousPage}
             />
-            {pagesArray.map((page) => (
+            {pagesArray.map((page, i) => (
               <button
-                className={page === pageSelected ? `text-[#020017] font-bold bg-white p-2 rounded-full w-10 h-10 opacity-50` : `text-[#020017] font-bold bg-white p-2 rounded-full w-10 h-10`}
+                key={i}
+                className={page === pageSelected ? `text-[#020017] font-bold bg-white p-2 rounded-full w-10 h-10 opacity-50` : `text-[#020017] font-bold bg-white p-2 rounded-full flex items-center justify-center w-8 h-8 md:w-10 md:h-10`}
                 onClick={() => handleClick(page)}>{page}
               </button>
             ))}

@@ -23,10 +23,12 @@ export const useCoinPage = () => {
   const { currency, symbol } = useContext(CurrencyContext)
   const params = useParams()
   const [singleCoin, setSingleCoin] = useState<SingleCoinTypes>()
+  const [isLoading, setIsLoading] = useState(true)
 
   const fetchOneCoin = async () => {
     await axios.get(SingleCoin(params.coin!))
       .then((response) => setSingleCoin(response.data))
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -37,6 +39,7 @@ export const useCoinPage = () => {
     currency,
     symbol,
     singleCoin,
-    params
+    params,
+    isLoading
   }
 }
